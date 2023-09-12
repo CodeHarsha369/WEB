@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('restaurant-background.jpg'); /* Change to your background image path */
+            background-repeat: repeat-x;
+            background-size: 100px; /* Adjust the background size as needed */
+        }
+
+        .menu-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-item" onclick="showDescription(this)">
+        <h2>Item 1</h2>
+        <p>Description of Item 1</p>
+    </div>
+
+    <div class="menu-item" onclick="showDescription(this)">
+        <h2>Item 2</h2>
+        <p>Description of Item 2</p>
+    </div>
+
+    <!-- Add more menu items as needed -->
+
+    <script>
+        function showDescription(item) {
+            alert(item.querySelector('p').textContent);
+        }
+
+        document.addEventListener('dblclick', function (event) {
+            if (event.target.classList.contains('menu-item')) {
+                event.target.remove();
+            }
+        });
+
+        window.addEventListener('resize', function () {
+            document.body.innerHTML = '<h1>Please reload to view the menu</h1>';
+        });
+    </script>
+</body>
+</html>
