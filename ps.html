@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VENKY 75</title>
+</head>
+<body>
+    <h1>SAINDHAV</h1>
+    <p>by Sailesh Kolanu</p>
+    <ul>
+        <li onclick=showDetails(this) data-movie-dir="Arya">Manas</li>
+        <li onclick=showDetails(this) data-movie-dir="producers">Niharika Ent</li>
+        <li onclick=showDetails(this) data-movie-dir="background">Shipyard</li>
+    </ul>
+    <script>
+        function showDetails(movie)
+        {
+            var movDir=movie.getAttribute("data-movie-dir");
+            alert(movie.innerHTML+" is directed by "+movDir);
+        }
+    </script>
+</body>
+</html>
