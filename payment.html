@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tours and Travels Payment Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .form-group select,
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .total-amount {
+      font-weight: bold;
+      margin-top: 15px;
+      color: green;
+    }
+
+    .success-message {
+      display: none;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: lightgreen;
+      margin-top: 20px;
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="form-group">
+      <label for="persons">Number of Persons:</label>
+      <select id="persons" name="persons">
+        <option value="1">1 Person</option>
+        <option value="2">2 Persons</option>
+        <option value="3">3 Persons</option>
+        <option value=">3">Enter no.of Persons</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="place">Select Place:</label>
+      <select id="place" name="place">
+        <option value="Canada">Canada</option>
+        <option value="France">France</option>
+        <option value="Monaco">Monaco</option>
+        <option value="Switzerland">Switzerland</option>
+        <option value="Southkorea">Southkorea</option>
+        <option value="Japan">Japan</option>
+      </select>
+    </div>
+
+    <div class="total-amount" id="total-amount">
+      Total Amount: RS.150000/- 
+    </div>
+
+    <div class="form-group">
+      <label for="payment-options">Select Payment Option:</label>
+      <select id="payment-options" name="payment-options">
+        <option value="google-pay">Google Pay</option>
+        <option value="net-banking">Net Banking</option>
+        <option value="cash">Cash</option>
+      </select>
+    </div>
+
+    <button onclick="showSuccessMessage()">Book Now</button>
+
+    <div class="success-message" id="success-message">
+      Your trip has been booked successfully!
+    </div>
+  </div>
+
+  <script>
+        function calculateTotalPrice() {
+          const personsSelect = document.getElementById('persons');
+          const totalAmountDiv = document.getElementById('total-amount');
+          const baseAmount = 150000;  // Base amount
+      
+          // Get the selected number of persons
+          const selectedPersons = parseInt(personsSelect.value, 10);
+      
+          // Calculate the total amount
+          const totalPrice = baseAmount * selectedPersons;
+      
+          // Update the total amount display
+          totalAmountDiv.textContent = 'Total Amount: RS.' + totalPrice + '/-';
+        }
+      
+        function showSuccessMessage() {
+          const successMessage = document.getElementById('success-message');
+          successMessage.style.display = 'block';
+        }
+      
+        // Call the calculateTotalPrice function whenever the "Number of Persons" selection changes
+        const personsSelect = document.getElementById('persons');
+        personsSelect.addEventListener('change', calculateTotalPrice);
+      </script>
+      
+    
+  </script>
+</body>
+
+</html>
